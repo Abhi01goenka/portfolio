@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <>
-      <ImagesSlider className="h-[40rem]" images={images}>
+      <ImagesSlider className="h-screen" images={images}>
         <motion.div
           initial={{
             opacity: 0,
