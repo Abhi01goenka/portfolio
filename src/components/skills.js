@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export const skills = [
   {
     title: "C++",
@@ -54,4 +56,9 @@ export const skills = [
     src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCI+Cjxwb2x5Z29uIGZpbGw9IiM0MGM0ZmYiIHBvaW50cz0iMjYsNCA2LDI0IDEyLDMwIDM4LDQiPjwvcG9seWdvbj48cG9seWdvbiBmaWxsPSIjNDBjNGZmIiBwb2ludHM9IjM4LDIyIDI3LDMzIDIxLDI3IDI2LDIyIj48L3BvbHlnb24+PHJlY3Qgd2lkdGg9IjguNDg1IiBoZWlnaHQ9IjguNDg1IiB4PSIxNi43NTciIHk9IjI4Ljc1NyIgZmlsbD0iIzAzYTlmNCIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ1LjAwMSAyMSAzMykiPjwvcmVjdD48cG9seWdvbiBmaWxsPSIjMDE1NzliIiBwb2ludHM9IjM4LDQ0IDI2LDQ0IDIxLDM5IDI3LDMzIj48L3BvbHlnb24+PHBvbHlnb24gZmlsbD0iIzA4NDk5NCIgcG9pbnRzPSIyMSwzOSAzMCwzNiAyNywzMyI+PC9wb2x5Z29uPgo8L3N2Zz4=",
     link: "https://flutter.dev/",
   },
+  // {
+  //   title: "Linux",
+  //   src: ""
+
+  // }
 ];

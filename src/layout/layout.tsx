@@ -1,16 +1,21 @@
-import React, { useContext } from "react";
+import React from "react";
 import Head from "next/head";
-import { FloatingNav } from "@/components/ui/floating-navbar";
-import { navItems } from "@/components/navbar_items";
+import { FloatingDock } from "@/components/ui/floating-dock";
+import links from "@/components/navbar_items";
 
 const Layout = ({ children }: React.PropsWithChildren) => {
     return (
-        <>
-            <Head>Abhishek's Portfolio</Head>
-            <FloatingNav navItems={navItems} />
-            {children}
-        </>
+        <div className="relative min-h-screen">
+            <Head>
+                <title>Abhishek's Portfolio</title>
+            </Head>
+            <main className="pb-16">
+                {children}
+            </main>
+            <FloatingDock items={links} />
+        </div>
     );
 };
+
 
 export default Layout;
