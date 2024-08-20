@@ -9,7 +9,8 @@ import {
     IconCode,
     IconBrandLinkedin,
     IconBrandInstagram,
-    IconStarFilled
+    IconStarFilled,
+    IconMail
 } from "@tabler/icons-react";
 import Image from "next/image";
 const links = [
@@ -41,6 +42,13 @@ const links = [
             <IconStarFilled className="h-full w-full text-neutral-500 dark:text-neutral-300" />
         ),
         href: "https://drive.google.com/file/d/1wWtmn7sgwAC9nmEL_Rh7aJQnKhh-X-Lm/view?usp=sharing",
+    },
+    {
+        title: "Mail",
+        icon: (
+            <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        ),
+        href: "mailto:abhishekgoenka4@gmail.com",
     },
     {
         title: "LinkedIn",
