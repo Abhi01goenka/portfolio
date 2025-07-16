@@ -10,7 +10,8 @@ import {
     IconBrandLinkedin,
     IconBrandInstagram,
     IconStarFilled,
-    IconMail
+    IconMail,
+    IconTimeline
 } from "@tabler/icons-react";
 import Image from "next/image";
 const links = [
@@ -40,11 +41,19 @@ const links = [
         target: ""
     },
     {
+        title: "Timeline",
+        icon: (
+            <IconTimeline className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        ),
+        href: "/mytimeline",
+        target: ""
+    },
+    {
         title: "Resume",
         icon: (
             <IconStarFilled className="h-full w-full text-neutral-500 dark:text-neutral-300" />
         ),
-        href: "https://drive.google.com/file/d/1wWtmn7sgwAC9nmEL_Rh7aJQnKhh-X-Lm/view?usp=sharing",
+        href: "https://drive.google.com/file/d/1eGZ76lZ7m5Gkc6IhYL5jjnIf1Zi-saSa/view?usp=sharing",
         target: "_blank"
     },
     {
@@ -77,7 +86,7 @@ const links = [
         icon: (
             <IconBrandInstagram className="h-full w-full text-neutral-500 dark:text-neutral-300" />
         ),
-        href: "https://www.instagram.com/goenka_abg242/",
+        href: "https://www.instagram.com/__abg__001__/",
         target: "_blank"
     },
     {
