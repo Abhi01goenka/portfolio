@@ -16,6 +16,17 @@
   }
 }
 
+html {
+  min-height: 100vh;
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  height: 100%;
+  overflow-y: auto;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
