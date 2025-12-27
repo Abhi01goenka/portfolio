@@ -1,8 +1,4 @@
-body {
-    overflow: hidden;
-    font-family: 'Roboto', serif;
-    background: linear-gradient(135deg, black, #220033);
-}
+/* Carousel container styles - overflow hidden applied to container, not body */
 
 .carousel {
     position: relative;
