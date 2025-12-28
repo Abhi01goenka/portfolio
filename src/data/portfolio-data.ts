@@ -6,12 +6,14 @@ export const personalInfo = {
   company: "Cisco",
   location: "Bangalore, India",
   email: "abhishekgoenka4@gmail.com",
-  tagline: "Passionate Competitive Programmer and Web Developer",
-  bio: "I am a passionate Competitive Programmer and Web Developer. I love solving complex problems efficiently and creating user-friendly websites. Currently working as a Software Engineer at Cisco, Bangalore in the Network Security Team.",
+  phone: "+91-829-9650-261",
+  tagline: "Building secure network infrastructure at Cisco. Knight on LeetCode. Passionate about DSA and system design.",
+  bio: "Software Engineer at Cisco working on Firepower Management Center (FMC) in the Network Security Team. I specialize in backend development using Java, Perl, and Python. With 1000+ problems solved across competitive programming platforms and a Knight badge on LeetCode (top 2.17%), I bring strong problem-solving skills to building scalable security solutions.",
   education: {
-    degree: "B.Tech in Computer Science and Engineering",
+    degree: "B.Tech in Computer Science",
     institution: "IIIT Lucknow",
     year: "2025",
+    cgpa: "9.03",
   },
 };
 

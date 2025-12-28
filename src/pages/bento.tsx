@@ -27,6 +27,7 @@ import {
   IconBrandLeetcode,
   IconDownload,
   IconSend,
+  IconUsers,
 } from "@tabler/icons-react";
 import { personalInfo, socialLinks, skills, projects, timeline } from "@/data/portfolio-data";
 
@@ -221,34 +222,12 @@ export default function BentoPortfolio() {
             <motion.div
               variants={itemVariants}
               whileHover={hoverScale}
-              className="col-span-1 md:col-span-3 lg:col-span-9 row-span-2 bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-600 rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group cursor-default"
+              className="col-span-1 md:col-span-3 lg:col-span-9 row-span-2 bg-neutral-900 dark:bg-neutral-900 rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group cursor-default"
             >
-              {/* Animated background elements */}
+              {/* Subtle gradient accent */}
               <div className="absolute inset-0 overflow-hidden">
-                <motion.div
-                  animate={{
-                    x: [0, 30, 0],
-                    y: [0, -20, 0],
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"
-                />
-                <motion.div
-                  animate={{
-                    x: [0, -20, 0],
-                    y: [0, 30, 0],
-                  }}
-                  transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-400/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"
-                />
+                <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
               </div>
 
               <div className="relative z-10">
@@ -256,9 +235,9 @@ export default function BentoPortfolio() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="text-emerald-100 text-sm font-medium mb-3 tracking-wider uppercase"
+                  className="text-emerald-400 text-sm font-medium mb-3 tracking-wider uppercase"
                 >
-                  Welcome to my portfolio
+                  Software Engineer I
                 </motion.p>
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
@@ -272,7 +251,7 @@ export default function BentoPortfolio() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="text-emerald-50 text-lg md:text-xl max-w-lg leading-relaxed"
+                  className="text-neutral-400 text-lg md:text-xl max-w-lg leading-relaxed"
                 >
                   {personalInfo.tagline}
                 </motion.p>
@@ -284,18 +263,29 @@ export default function BentoPortfolio() {
                 transition={{ delay: 0.6 }}
                 className="relative z-10 flex flex-wrap items-center gap-3 mt-6"
               >
-                <div className="flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white">
+                <div className="flex items-center gap-2 px-4 py-2 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-emerald-400">
                   <IconBriefcase className="w-4 h-4" />
-                  <span className="text-sm font-medium">{personalInfo.title} @ {personalInfo.company}</span>
+                  <span className="text-sm font-medium">{personalInfo.company}</span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white">
+                <div className="flex items-center gap-2 px-4 py-2 bg-neutral-800 border border-neutral-700 rounded-full text-neutral-300">
                   <IconMapPin className="w-4 h-4" />
                   <span className="text-sm font-medium">{personalInfo.location}</span>
                 </div>
+                <motion.a
+                  href={socialLinks.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-2 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 rounded-full text-white text-sm font-medium transition-colors"
+                >
+                  <IconDownload className="w-4 h-4" />
+                  Resume
+                </motion.a>
               </motion.div>
             </motion.div>
 
-            {/* Social Links Card */}
+            {/* Connect With Me Card */}
             <motion.div
               variants={itemVariants}
               whileHover={hoverScale}
@@ -325,42 +315,21 @@ export default function BentoPortfolio() {
               </div>
             </motion.div>
 
-            {/* Status + CTA Card */}
+            {/* Status Card */}
             <motion.div
               variants={itemVariants}
               whileHover={hoverScale}
-              className="col-span-1 md:col-span-2 lg:col-span-5 row-span-1 bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl p-6 relative overflow-hidden"
+              className="col-span-1 md:col-span-2 lg:col-span-5 row-span-1 bg-white dark:bg-neutral-900 rounded-3xl p-6 relative overflow-hidden border border-neutral-200 dark:border-neutral-800"
             >
               <motion.div
                 animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="absolute top-4 right-4 w-3 h-3 bg-green-400 rounded-full shadow-lg shadow-green-400/50"
+                className="absolute top-4 right-4 w-3 h-3 bg-emerald-400 rounded-full shadow-lg shadow-emerald-400/50"
               />
               <div className="relative z-10">
-                <h2 className="text-sm font-semibold mb-2 text-amber-100 uppercase tracking-wider">Current Status</h2>
-                <p className="text-white font-bold text-lg mb-3">Software Engineer @ Cisco</p>
-                <div className="flex flex-wrap gap-2">
-                  <motion.a
-                    href={socialLinks.resume}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium hover:bg-white/30 transition-colors"
-                  >
-                    <IconDownload className="w-4 h-4" />
-                    Resume
-                  </motion.a>
-                  <motion.a
-                    href={socialLinks.email}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-white text-orange-600 rounded-full text-sm font-bold hover:bg-orange-50 transition-colors"
-                  >
-                    <IconSend className="w-4 h-4" />
-                    Let's Connect
-                  </motion.a>
-                </div>
+                <h2 className="text-sm font-semibold mb-2 text-neutral-500 uppercase tracking-wider">Current Status</h2>
+                <p className="text-neutral-900 dark:text-white font-bold text-lg">Software Engineer @ Cisco</p>
+                <p className="text-neutral-500 text-sm mt-1">NetSec Team • Cisco Secure</p>
               </div>
             </motion.div>
 
@@ -368,21 +337,16 @@ export default function BentoPortfolio() {
             <motion.div
               variants={itemVariants}
               whileHover={hoverScale}
-              className="col-span-1 md:col-span-2 lg:col-span-4 row-span-1 bg-gradient-to-br from-violet-500 to-purple-600 rounded-3xl p-6 relative overflow-hidden"
+              className="col-span-1 md:col-span-2 lg:col-span-4 row-span-1 bg-white dark:bg-neutral-900 rounded-3xl p-6 relative overflow-hidden border border-neutral-200 dark:border-neutral-800"
             >
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full"
-              />
               <div className="relative z-10 flex items-center gap-4">
-                <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center shrink-0">
-                  <IconSchool className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center shrink-0">
+                  <IconSchool className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">{personalInfo.education.institution}</h3>
-                  <p className="text-violet-100 text-sm">{personalInfo.education.degree}</p>
-                  <p className="text-violet-200 text-xs mt-1">Class of {personalInfo.education.year}</p>
+                  <h3 className="text-lg font-bold text-neutral-900 dark:text-white">{personalInfo.education.institution}</h3>
+                  <p className="text-neutral-600 dark:text-neutral-400 text-sm">{personalInfo.education.degree}</p>
+                  <p className="text-emerald-600 dark:text-emerald-400 text-xs mt-1 font-semibold">CGPA: 9.03 • Class of {personalInfo.education.year}</p>
                 </div>
               </div>
             </motion.div>
@@ -400,7 +364,7 @@ export default function BentoPortfolio() {
                 <h2 className="text-lg font-semibold text-neutral-900 dark:text-white">About Me</h2>
               </div>
               <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg">
-                {personalInfo.bio}
+                Software Engineer at Cisco working in the Network Security Team on Cisco Secure products. I specialize in backend development using Java, Perl, and Python. With 1000+ problems solved across competitive programming platforms and a Knight badge on LeetCode (top 2.17%), I bring strong problem-solving skills to building scalable security solutions.
               </p>
               <div className="mt-6 pt-6 border-t border-neutral-200 dark:border-neutral-800 grid grid-cols-3 gap-4">
                 <div className="text-center">
@@ -412,8 +376,8 @@ export default function BentoPortfolio() {
                   <p className="text-xs text-neutral-500 mt-1">Technologies</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">99%</p>
-                  <p className="text-xs text-neutral-500 mt-1">JEE Percentile</p>
+                  <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">1000+</p>
+                  <p className="text-xs text-neutral-500 mt-1">Problems Solved</p>
                 </div>
               </div>
             </motion.div>
@@ -422,44 +386,41 @@ export default function BentoPortfolio() {
             <motion.div
               variants={itemVariants}
               whileHover={hoverScale}
-              className="col-span-1 md:col-span-2 lg:col-span-4 row-span-2 bg-gradient-to-br from-rose-500 to-pink-600 rounded-3xl p-6 relative overflow-hidden"
+              className="col-span-1 md:col-span-2 lg:col-span-4 row-span-2 bg-white dark:bg-neutral-900 rounded-3xl p-6 relative overflow-hidden border border-neutral-200 dark:border-neutral-800"
             >
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-6 -right-6 w-32 h-32 bg-white/10 rounded-full"
-              />
               <div className="relative z-10">
-                <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-4">
-                  <IconAward className="w-6 h-6 text-white" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center">
+                    <IconAward className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                  </div>
+                  <h2 className="text-lg font-semibold text-neutral-900 dark:text-white">Achievements</h2>
                 </div>
-                <h2 className="text-sm font-semibold mb-4 text-rose-200 uppercase tracking-wider">Achievements</h2>
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                      <IconTargetArrow className="w-4 h-4 text-white" />
+                  <div className="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-800/50 rounded-xl">
+                    <div className="w-8 h-8 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center shrink-0">
+                      <IconAward className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                     </div>
                     <div>
-                      <p className="text-white font-bold text-sm">JEE Mains 99.16%ile</p>
-                      <p className="text-rose-200 text-xs">AIR 8642</p>
+                      <p className="text-neutral-900 dark:text-white font-semibold text-sm">Cisco Intern Recognition</p>
+                      <p className="text-neutral-500 text-xs">Spring '25 Award</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                      <IconTrophy className="w-4 h-4 text-white" />
+                  <div className="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-800/50 rounded-xl">
+                    <div className="w-8 h-8 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center shrink-0">
+                      <IconBrandLeetcode className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                     </div>
                     <div>
-                      <p className="text-white font-bold text-sm">Cisco Intern Hackathon</p>
-                      <p className="text-rose-200 text-xs">AbilitySync Project</p>
+                      <p className="text-neutral-900 dark:text-white font-semibold text-sm">Knight @ LeetCode</p>
+                      <p className="text-neutral-500 text-xs">Rating 2069 • Top 2.17%</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                      <IconSparkles className="w-4 h-4 text-white" />
+                  <div className="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-800/50 rounded-xl">
+                    <div className="w-8 h-8 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center shrink-0">
+                      <IconTrophy className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                     </div>
                     <div>
-                      <p className="text-white font-bold text-sm">Google Interview</p>
-                      <p className="text-rose-200 text-xs">Shortlisted Off-Campus</p>
+                      <p className="text-neutral-900 dark:text-white font-semibold text-sm">ICPC 2023 Prelims</p>
+                      <p className="text-neutral-500 text-xs">Global Rank 506</p>
                     </div>
                   </div>
                 </div>
@@ -472,8 +433,8 @@ export default function BentoPortfolio() {
               className="col-span-1 md:col-span-4 lg:col-span-8 row-span-2 bg-white dark:bg-neutral-900 rounded-3xl p-8 border border-neutral-200 dark:border-neutral-800"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
-                  <IconCode className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <div className="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center">
+                  <IconCode className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <h2 className="text-lg font-semibold text-neutral-900 dark:text-white">Tech Stack</h2>
               </div>
@@ -482,14 +443,14 @@ export default function BentoPortfolio() {
               <div className="mb-5">
                 <p className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-3">Languages</p>
                 <div className="flex flex-wrap gap-2">
-                  {["C++", "Python", "Java", "C", "JavaScript"].map((skill, index) => (
+                  {["C++", "Python", "Java", "C", "Perl", "JavaScript", "SQL"].map((skill, index) => (
                     <motion.span
                       key={skill}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.05 }}
                       whileHover={{ scale: 1.05, y: -2 }}
-                      className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-xl text-sm font-medium"
+                      className="px-4 py-2 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 rounded-xl text-sm font-medium border border-neutral-200 dark:border-neutral-700"
                     >
                       {skill}
                     </motion.span>
@@ -501,14 +462,14 @@ export default function BentoPortfolio() {
               <div className="mb-5">
                 <p className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-3">Frameworks & Libraries</p>
                 <div className="flex flex-wrap gap-2">
-                  {["React.js", "Next.js", "Flutter", "Flask"].map((skill, index) => (
+                  {["React.js", "Next.js", "Flutter", "Flask", "Lucene", "Pandas"].map((skill, index) => (
                     <motion.span
                       key={skill}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.05 }}
                       whileHover={{ scale: 1.05, y: -2 }}
-                      className="px-4 py-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-xl text-sm font-medium"
+                      className="px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-xl text-sm font-medium border border-emerald-200 dark:border-emerald-800"
                     >
                       {skill}
                     </motion.span>
@@ -520,14 +481,14 @@ export default function BentoPortfolio() {
               <div>
                 <p className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-3">Tools & Technologies</p>
                 <div className="flex flex-wrap gap-2">
-                  {["Firebase", "Git", "Linux", "HTML", "CSS", "SQL"].map((skill, index) => (
+                  {["Git", "Linux", "Firebase", "MongoDB", "MySQL", "REST APIs"].map((skill, index) => (
                     <motion.span
                       key={skill}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.05 }}
                       whileHover={{ scale: 1.05, y: -2 }}
-                      className="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-xl text-sm font-medium"
+                      className="px-4 py-2 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 rounded-xl text-sm font-medium border border-neutral-200 dark:border-neutral-700"
                     >
                       {skill}
                     </motion.span>
@@ -536,42 +497,63 @@ export default function BentoPortfolio() {
               </div>
             </motion.div>
 
-            {/* Competitive Programming Card */}
+            {/* CP Ratings Card */}
             <motion.div
               variants={itemVariants}
               whileHover={hoverScale}
-              className="col-span-1 md:col-span-2 lg:col-span-4 row-span-1 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-3xl p-6 relative overflow-hidden"
+              className="col-span-1 md:col-span-2 lg:col-span-4 row-span-2 bg-neutral-900 dark:bg-neutral-900 rounded-3xl p-6 relative overflow-hidden border border-neutral-800"
             >
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="absolute -top-8 -left-8 w-32 h-32 bg-white/10 rounded-full"
-              />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl" />
               <div className="relative z-10">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
-                    <IconBrandLeetcode className="w-6 h-6 text-white" />
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-10 h-10 bg-emerald-900/50 rounded-xl flex items-center justify-center">
+                    <IconCode className="w-5 h-5 text-emerald-400" />
                   </div>
-                  <span className="px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium">CP Enthusiast</span>
+                  <div>
+                    <h2 className="text-lg font-semibold text-white">CP Ratings</h2>
+                    <p className="text-neutral-500 text-xs">1000+ Problems Solved</p>
+                  </div>
                 </div>
-                <h2 className="text-sm font-semibold mb-2 text-cyan-100 uppercase tracking-wider">Competitive Programming</h2>
-                <p className="text-white text-sm mb-3">Passionate problem solver with focus on DSA and algorithmic thinking</p>
-                <div className="flex gap-4">
+                <div className="grid grid-cols-2 gap-3">
                   <a 
-                    href="https://leetcode.com/u/Abhi01goenka/" 
+                    href="https://leetcode.com/u/abg_001/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-cyan-100 hover:text-white text-xs underline underline-offset-2"
+                    className="p-3 bg-neutral-800/50 hover:bg-neutral-700/50 rounded-xl text-center transition-colors cursor-pointer"
                   >
-                    LeetCode →
+                    <p className="text-emerald-400 font-bold text-lg">2069</p>
+                    <p className="text-neutral-500 text-xs">LeetCode</p>
+                    <p className="text-emerald-400/70 text-[10px]">Knight • Top 2.17%</p>
                   </a>
                   <a 
-                    href="https://codeforces.com/profile/Abhi01goenka" 
+                    href="https://codeforces.com/profile/abg_001" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-cyan-100 hover:text-white text-xs underline underline-offset-2"
+                    className="p-3 bg-neutral-800/50 hover:bg-neutral-700/50 rounded-xl text-center transition-colors cursor-pointer"
                   >
-                    Codeforces →
+                    <p className="text-emerald-400 font-bold text-lg">1468</p>
+                    <p className="text-neutral-500 text-xs">Codeforces</p>
+                    <p className="text-emerald-400/70 text-[10px]">Specialist</p>
+                  </a>
+                  <a 
+                    href="https://www.codechef.com/users/abg_007" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-3 bg-neutral-800/50 hover:bg-neutral-700/50 rounded-xl text-center transition-colors cursor-pointer"
+                  >
+                    <p className="text-emerald-400 font-bold text-lg">1740</p>
+                    <p className="text-neutral-500 text-xs">CodeChef</p>
+                    <p className="text-emerald-400/70 text-[10px]">3 Star</p>
+                  </a>
+                  <a 
+                    href="https://atcoder.jp/users/Abg_001" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-3 bg-neutral-800/50 hover:bg-neutral-700/50 rounded-xl text-center transition-colors cursor-pointer"
+                  >
+                    <p className="text-emerald-400 font-bold text-lg">912</p>
+                    <p className="text-neutral-500 text-xs">AtCoder</p>
+                    <p className="text-emerald-400/70 text-[10px]">6 Kyu</p>
                   </a>
                 </div>
               </div>
@@ -581,12 +563,12 @@ export default function BentoPortfolio() {
             <motion.div
               variants={itemVariants}
               whileHover={hoverScale}
-              className="col-span-1 md:col-span-2 lg:col-span-8 row-span-1 bg-white dark:bg-neutral-900 rounded-3xl p-6 border border-neutral-200 dark:border-neutral-800"
+              className="col-span-1 md:col-span-4 lg:col-span-12 row-span-1 bg-white dark:bg-neutral-900 rounded-3xl p-6 border border-neutral-200 dark:border-neutral-800"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-neutral-100 dark:bg-neutral-800 rounded-xl flex items-center justify-center">
-                    <IconBrandGithub className="w-5 h-5" />
+                  <div className="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center">
+                    <IconBrandGithub className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                   </div>
                   <h2 className="text-lg font-semibold text-neutral-900 dark:text-white">GitHub Activity</h2>
                 </div>
@@ -622,8 +604,8 @@ export default function BentoPortfolio() {
             >
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center">
-                    <IconTrophy className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+                  <div className="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center">
+                    <IconTrophy className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                   </div>
                   <h2 className="text-lg font-semibold text-neutral-900 dark:text-white">Featured Projects</h2>
                 </div>
@@ -697,15 +679,15 @@ export default function BentoPortfolio() {
               className="col-span-1 md:col-span-4 lg:col-span-12 bg-white dark:bg-neutral-900 rounded-3xl p-8 border border-neutral-200 dark:border-neutral-800"
             >
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-10 h-10 bg-cyan-100 dark:bg-cyan-900/30 rounded-xl flex items-center justify-center">
-                  <IconCalendar className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
+                <div className="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center">
+                  <IconCalendar className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <h2 className="text-lg font-semibold text-neutral-900 dark:text-white">My Journey</h2>
               </div>
               
               <div className="relative">
                 {/* Timeline line - centered on desktop, left-aligned on mobile */}
-                <div className="absolute left-[7px] md:left-1/2 md:-translate-x-[1px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-emerald-500 via-cyan-500 to-violet-500" />
+                <div className="absolute left-[7px] md:left-1/2 md:-translate-x-[1px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-emerald-500 via-emerald-400 to-emerald-300" />
                 
                 <div className="space-y-12">
                   {timeline.map((item, index) => (
@@ -733,7 +715,7 @@ export default function BentoPortfolio() {
                           whileHover={{ scale: 1.05 }}
                           className={`mb-3 ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}
                         >
-                          <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white text-sm font-bold rounded-full shadow-md">
+                          <span className="inline-block px-4 py-1.5 bg-emerald-500 text-white text-sm font-bold rounded-full shadow-md">
                             {item.year}
                           </span>
                         </motion.div>
