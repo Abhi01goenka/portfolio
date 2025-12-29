@@ -26,7 +26,7 @@ const cpRatings = [
 ];
 
 const AVAILABLE_COMMANDS = [
-  "help", "whoami", "skills", "projects", "achievements", "cp", "timeline", "contact", "clear", "neofetch", "banner", "quote", "matrix", "sudo", "cowsay", "fortune", "hack", "weather", "time", "joke", "ascii", "tree", "ping", "whoisthat", "rickroll", "coffee", "vim", "emacs"
+  "help", "whoami", "skills", "projects", "achievements", "cp", "timeline", "contact", "clear", "neofetch", "banner", "quote", "matrix", "sudo", "cowsay", "fortune", "hack", "time", "joke", "ascii", "tree", "ping", "whoisthat", "rickroll", "coffee", "vim", "emacs", "echo", "history", "8ball", "flip", "dice", "stats", "uptime", "man", "social", "github", "linkedin", "twitter", "instagram", "hello", "42", "rm", "rainbow", "glitch", "fire", "typewriter"
 ];
 
 interface HistoryItem {
@@ -53,13 +53,14 @@ const getHelpOutput = () => (
   <div className="pl-4 text-sm space-y-1">
     <p className="text-neutral-300 mb-2">📋 Available commands:</p>
     <p className="text-neutral-500 mt-3 mb-1">── Info ──</p>
-    <p><span className="text-cyan-400">whoami</span> <span className="text-neutral-500">- Display personal info</span></p>
+    <p><span className="text-cyan-400">whoami</span> <span className="text-neutral-500">- Display personal info (use -v for verbose)</span></p>
     <p><span className="text-cyan-400">skills</span> <span className="text-neutral-500">- Show technical skills</span></p>
     <p><span className="text-cyan-400">projects</span> <span className="text-neutral-500">- List all projects</span></p>
     <p><span className="text-cyan-400">achievements</span> <span className="text-neutral-500">- Show achievements</span></p>
     <p><span className="text-cyan-400">cp</span> <span className="text-neutral-500">- Competitive programming ratings</span></p>
     <p><span className="text-cyan-400">timeline</span> <span className="text-neutral-500">- Career timeline</span></p>
     <p><span className="text-cyan-400">contact</span> <span className="text-neutral-500">- Contact information</span></p>
+    <p><span className="text-cyan-400">stats</span> <span className="text-neutral-500">- Portfolio statistics</span></p>
     <p className="text-neutral-500 mt-3 mb-1">── Fun ──</p>
     <p><span className="text-emerald-400">neofetch</span> <span className="text-neutral-500">- System info style display</span></p>
     <p><span className="text-emerald-400">banner</span> <span className="text-neutral-500">- Show ASCII art banner</span></p>
@@ -67,21 +68,41 @@ const getHelpOutput = () => (
     <p><span className="text-emerald-400">fortune</span> <span className="text-neutral-500">- Get your coding fortune</span></p>
     <p><span className="text-emerald-400">joke</span> <span className="text-neutral-500">- Random programming joke</span></p>
     <p><span className="text-emerald-400">matrix</span> <span className="text-neutral-500">- Enter the Matrix</span></p>
-    <p><span className="text-emerald-400">cowsay</span> <span className="text-neutral-500">- Cow says moo (or your message)</span></p>
+    <p><span className="text-emerald-400">cowsay [msg]</span> <span className="text-neutral-500">- Cow says your message</span></p>
     <p><span className="text-emerald-400">ascii</span> <span className="text-neutral-500">- Cool ASCII art</span></p>
     <p><span className="text-emerald-400">coffee</span> <span className="text-neutral-500">- Get a virtual coffee ☕</span></p>
     <p><span className="text-emerald-400">rickroll</span> <span className="text-neutral-500">- You know the rules...</span></p>
+    <p><span className="text-emerald-400">rainbow [text]</span> <span className="text-neutral-500">- Rainbow colored text</span></p>
+    <p><span className="text-emerald-400">glitch</span> <span className="text-neutral-500">- Glitch effect</span></p>
+    <p><span className="text-emerald-400">fire</span> <span className="text-neutral-500">- ASCII fire animation 🔥</span></p>
+    <p><span className="text-emerald-400">typewriter [text]</span> <span className="text-neutral-500">- Typing animation</span></p>
+    <p className="text-neutral-500 mt-3 mb-1">── Games ──</p>
+    <p><span className="text-pink-400">8ball [question]</span> <span className="text-neutral-500">- Ask the magic 8-ball</span></p>
+    <p><span className="text-pink-400">flip</span> <span className="text-neutral-500">- Flip a coin</span></p>
+    <p><span className="text-pink-400">dice</span> <span className="text-neutral-500">- Roll a dice</span></p>
     <p className="text-neutral-500 mt-3 mb-1">── Tools ──</p>
     <p><span className="text-purple-400">hack</span> <span className="text-neutral-500">- Hack the mainframe 😎</span></p>
-    <p><span className="text-purple-400">weather</span> <span className="text-neutral-500">- Check the weather</span></p>
     <p><span className="text-purple-400">time</span> <span className="text-neutral-500">- Current date and time</span></p>
+    <p><span className="text-purple-400">uptime</span> <span className="text-neutral-500">- Coding journey duration</span></p>
     <p><span className="text-purple-400">tree</span> <span className="text-neutral-500">- Show directory structure</span></p>
     <p><span className="text-purple-400">ping</span> <span className="text-neutral-500">- Ping the portfolio</span></p>
     <p><span className="text-purple-400">whoisthat</span> <span className="text-neutral-500">- Identity card</span></p>
+    <p><span className="text-purple-400">echo [text]</span> <span className="text-neutral-500">- Print text</span></p>
+    <p><span className="text-purple-400">history</span> <span className="text-neutral-500">- Show command history</span></p>
+    <p><span className="text-purple-400">man [cmd]</span> <span className="text-neutral-500">- Manual for a command</span></p>
+    <p className="text-neutral-500 mt-3 mb-1">── Social ──</p>
+    <p><span className="text-blue-400">social</span> <span className="text-neutral-500">- All social links</span></p>
+    <p><span className="text-blue-400">github</span> <span className="text-neutral-500">- Open GitHub profile</span></p>
+    <p><span className="text-blue-400">linkedin</span> <span className="text-neutral-500">- Open LinkedIn profile</span></p>
+    <p><span className="text-blue-400">twitter</span> <span className="text-neutral-500">- Open Twitter/X profile</span></p>
+    <p><span className="text-blue-400">instagram</span> <span className="text-neutral-500">- Open Instagram profile</span></p>
     <p className="text-neutral-500 mt-3 mb-1">── Easter Eggs ──</p>
     <p><span className="text-red-400">sudo</span> <span className="text-neutral-500">- Try your luck...</span></p>
     <p><span className="text-red-400">vim</span> <span className="text-neutral-500">- Enter vim mode</span></p>
     <p><span className="text-red-400">emacs</span> <span className="text-neutral-500">- The other editor</span></p>
+    <p><span className="text-red-400">rm</span> <span className="text-neutral-500">- Delete everything 💀</span></p>
+    <p><span className="text-red-400">42</span> <span className="text-neutral-500">- The answer</span></p>
+    <p><span className="text-red-400">hello</span> <span className="text-neutral-500">- Say hi!</span></p>
     <p className="text-neutral-500 mt-3 mb-1">── System ──</p>
     <p><span className="text-yellow-400">clear</span> <span className="text-neutral-500">- Clear terminal</span></p>
     <p><span className="text-yellow-400">help</span> <span className="text-neutral-500">- Show this help message</span></p>
@@ -423,20 +444,6 @@ Status: Always learning`}
   </div>
 );
 
-const getWeatherOutput = () => {
-  const conditions = ["☀️ Sunny", "🌤️ Partly Cloudy", "☁️ Cloudy", "🌧️ Rainy", "⛈️ Stormy", "❄️ Snowy"];
-  const condition = conditions[Math.floor(Math.random() * conditions.length)];
-  const temp = Math.floor(Math.random() * 20) + 15;
-  return (
-    <div className="pl-4">
-      <p className="text-cyan-400 text-lg">{condition}</p>
-      <p className="text-neutral-300">Temperature: <span className="text-yellow-400">{temp}°C</span></p>
-      <p className="text-neutral-500 text-xs mt-1">📍 Bangalore, India (simulated)</p>
-      <p className="text-neutral-600 text-xs">Perfect weather for coding! 💻</p>
-    </div>
-  );
-};
-
 const getTimeOutput = () => {
   const now = new Date();
   const timeStr = now.toLocaleTimeString('en-US', { hour12: true });
@@ -571,6 +578,356 @@ const getEmacsOutput = () => (
   </div>
 );
 
+// Magic 8-ball responses
+const eightBallResponses = [
+  { text: "It is certain.", type: "positive" },
+  { text: "Without a doubt.", type: "positive" },
+  { text: "Yes, definitely!", type: "positive" },
+  { text: "You may rely on it.", type: "positive" },
+  { text: "As I see it, yes.", type: "positive" },
+  { text: "Most likely.", type: "positive" },
+  { text: "Outlook good.", type: "positive" },
+  { text: "Signs point to yes.", type: "positive" },
+  { text: "Reply hazy, try again.", type: "neutral" },
+  { text: "Ask again later.", type: "neutral" },
+  { text: "Better not tell you now.", type: "neutral" },
+  { text: "Cannot predict now.", type: "neutral" },
+  { text: "Concentrate and ask again.", type: "neutral" },
+  { text: "Don't count on it.", type: "negative" },
+  { text: "My reply is no.", type: "negative" },
+  { text: "My sources say no.", type: "negative" },
+  { text: "Outlook not so good.", type: "negative" },
+  { text: "Very doubtful.", type: "negative" },
+];
+
+const get8BallOutput = (question?: string) => {
+  const response = eightBallResponses[Math.floor(Math.random() * eightBallResponses.length)];
+  const colorClass = response.type === "positive" ? "text-emerald-400" : response.type === "negative" ? "text-red-400" : "text-yellow-400";
+  return (
+    <div className="pl-4">
+      {question && <p className="text-neutral-500 mb-2">🎱 Question: {question}</p>}
+      <p className={`${colorClass} text-lg`}>🎱 {response.text}</p>
+    </div>
+  );
+};
+
+const getFlipOutput = () => {
+  const result = Math.random() < 0.5 ? "Heads" : "Tails";
+  const emoji = result === "Heads" ? "👑" : "🪙";
+  return (
+    <div className="pl-4">
+      <p className="text-yellow-400 text-lg">{emoji} {result}!</p>
+      <p className="text-neutral-500 text-xs mt-1">*coin spinning sounds*</p>
+    </div>
+  );
+};
+
+const getDiceOutput = () => {
+  const result = Math.floor(Math.random() * 6) + 1;
+  const diceEmojis = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+  return (
+    <div className="pl-4">
+      <p className="text-cyan-400 text-3xl">{diceEmojis[result - 1]}</p>
+      <p className="text-neutral-300 mt-1">You rolled a <span className="text-yellow-400 font-bold">{result}</span>!</p>
+    </div>
+  );
+};
+
+const getStatsOutput = () => (
+  <div className="pl-4 space-y-2">
+    <p className="text-neutral-300 mb-2">📊 Portfolio Statistics:</p>
+    <div className="grid grid-cols-2 gap-2 text-sm max-w-md">
+      <p><span className="text-cyan-400">Projects:</span> <span className="text-white">4</span></p>
+      <p><span className="text-cyan-400">Languages:</span> <span className="text-white">7</span></p>
+      <p><span className="text-cyan-400">Frameworks:</span> <span className="text-white">6</span></p>
+      <p><span className="text-cyan-400">Tools:</span> <span className="text-white">6</span></p>
+      <p><span className="text-cyan-400">Achievements:</span> <span className="text-white">3</span></p>
+      <p><span className="text-cyan-400">CP Platforms:</span> <span className="text-white">4</span></p>
+      <p><span className="text-cyan-400">Problems Solved:</span> <span className="text-emerald-400">1000+</span></p>
+      <p><span className="text-cyan-400">Years Active:</span> <span className="text-white">5+</span></p>
+    </div>
+    <p className="text-neutral-600 text-xs mt-3">Last updated: 2025</p>
+  </div>
+);
+
+const getUptimeOutput = () => {
+  const startDate = new Date('2020-01-01');
+  const now = new Date();
+  const years = now.getFullYear() - startDate.getFullYear();
+  const days = Math.floor((now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+  return (
+    <div className="pl-4">
+      <p className="text-emerald-400">🖥️ System Uptime</p>
+      <p className="text-neutral-300 mt-1">Coding journey: <span className="text-yellow-400">{years} years, {days % 365} days</span></p>
+      <p className="text-neutral-500 text-xs mt-2">Started: January 2020 | Status: Still going strong! 💪</p>
+    </div>
+  );
+};
+
+const getManOutput = (command?: string) => {
+  const manPages: Record<string, string> = {
+    whoami: "Display information about the portfolio owner",
+    skills: "List all technical skills organized by category",
+    projects: "Show all projects with descriptions and links",
+    achievements: "Display notable achievements and awards",
+    cp: "Show competitive programming ratings across platforms",
+    timeline: "Display career timeline from 2020 to present",
+    contact: "Show contact information and social links",
+    neofetch: "Display system-style information summary",
+    banner: "Show ASCII art banner with name",
+    quote: "Display a random programming quote",
+    fortune: "Get a random coding fortune prediction",
+    joke: "Tell a random programming joke",
+    matrix: "Enter the Matrix (visual effect)",
+    cowsay: "Make a cow say your message. Usage: cowsay [message]",
+    hack: "Simulate a hacking sequence (just for fun)",
+    "8ball": "Ask the magic 8-ball a question. Usage: 8ball [question]",
+    flip: "Flip a virtual coin",
+    dice: "Roll a virtual dice",
+    stats: "Show portfolio statistics",
+    echo: "Print text to terminal. Usage: echo [text]",
+    clear: "Clear the terminal screen",
+    help: "Show all available commands",
+  };
+  
+  if (!command || !manPages[command]) {
+    return (
+      <div className="pl-4">
+        <p className="text-yellow-400">Usage: man [command]</p>
+        <p className="text-neutral-500 text-xs mt-1">Example: man whoami</p>
+      </div>
+    );
+  }
+  
+  return (
+    <div className="pl-4">
+      <p className="text-cyan-400 font-bold uppercase">{command}</p>
+      <p className="text-neutral-300 mt-1">{manPages[command]}</p>
+    </div>
+  );
+};
+
+const getSocialOutput = () => (
+  <div className="pl-4 space-y-2">
+    <p className="text-neutral-300 mb-2">🌐 Social Links:</p>
+    <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors">
+      <span>📦</span> <span className="text-purple-400">GitHub:</span> <span className="text-cyan-400 hover:underline">github.com/Abhi01goenka</span>
+    </a>
+    <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors">
+      <span>💼</span> <span className="text-purple-400">LinkedIn:</span> <span className="text-cyan-400 hover:underline">linkedin.com/in/abhishek-goenka</span>
+    </a>
+    <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors">
+      <span>🐦</span> <span className="text-purple-400">Twitter:</span> <span className="text-cyan-400 hover:underline">x.com/Lone_Rider_007</span>
+    </a>
+    <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors">
+      <span>📸</span> <span className="text-purple-400">Instagram:</span> <span className="text-cyan-400 hover:underline">instagram.com/__abg__001__</span>
+    </a>
+  </div>
+);
+
+const getHelloOutput = () => {
+  const greetings = [
+    "Hey there! 👋 Welcome to my terminal portfolio!",
+    "Hello, world! 🌍 Nice to see you here!",
+    "Greetings, traveler! 🚀 Explore my portfolio!",
+    "Hi! 😊 Thanks for stopping by!",
+    "Welcome! 🎉 Feel free to look around!",
+  ];
+  return (
+    <div className="pl-4">
+      <p className="text-emerald-400 text-lg">{greetings[Math.floor(Math.random() * greetings.length)]}</p>
+      <p className="text-neutral-500 text-xs mt-2">Type <span className="text-cyan-400">help</span> to see what you can do here.</p>
+    </div>
+  );
+};
+
+const get42Output = () => (
+  <div className="pl-4">
+    <p className="text-yellow-400 text-2xl font-bold">42</p>
+    <p className="text-neutral-400 mt-1">The Answer to the Ultimate Question of Life, the Universe, and Everything.</p>
+    <p className="text-neutral-600 text-xs mt-2">— The Hitchhiker&apos;s Guide to the Galaxy</p>
+  </div>
+);
+
+const getRmOutput = () => (
+  <div className="pl-4 space-y-1">
+    <p className="text-red-400 animate-pulse">⚠️ CRITICAL WARNING ⚠️</p>
+    <p className="text-red-500">Deleting system files...</p>
+    <p className="text-red-500">[▓▓▓▓▓▓▓▓▓▓] 100%</p>
+    <p className="text-emerald-400 mt-2">Just kidding! 😄</p>
+    <p className="text-neutral-500 text-xs">This is a portfolio, not a real terminal. Your files are safe!</p>
+    <p className="text-neutral-600 text-xs mt-1">Pro tip: Never run this on a real system 💀</p>
+  </div>
+);
+
+const getRainbowOutput = (text?: string) => {
+  const msg = text || "Hello, Rainbow World!";
+  const colors = ["text-red-400", "text-orange-400", "text-yellow-400", "text-emerald-400", "text-cyan-400", "text-blue-400", "text-purple-400"];
+  return (
+    <div className="pl-4">
+      <p className="text-lg">
+        {msg.split("").map((char, i) => (
+          <span key={i} className={colors[i % colors.length]}>{char}</span>
+        ))}
+      </p>
+    </div>
+  );
+};
+
+const getGlitchOutput = () => (
+  <div className="pl-4">
+    <pre className="text-emerald-400 text-xs">
+{`
+█▀▀ █░░ █ ▀█▀ █▀▀ █░█
+█▄█ █▄▄ █ ░█░ █▄▄ █▀█
+
+S̷y̷s̷t̷e̷m̷ ̷m̷a̷l̷f̷u̷n̷c̷t̷i̷o̷n̷.̷.̷.̷
+R̶e̶b̶o̶o̶t̶i̶n̶g̶.̶.̶.̶
+`}
+    </pre>
+    <p className="text-cyan-400 mt-2">Just a visual glitch. Everything is fine! ✨</p>
+  </div>
+);
+
+const getEchoOutput = (text?: string) => (
+  <div className="pl-4">
+    <p className="text-neutral-300">{text || ""}</p>
+  </div>
+);
+
+const getFireOutput = () => (
+  <div className="pl-4">
+    <pre className="text-xs leading-tight">
+{`                    (  .      )
+                   )           (              )
+                         .  '   .   '  .  '  .
+                (    , )       (.   )  (   ',    )
+                 .' ) ( . )    ,  ( ,     )   ( .
+              ). , ( .   (  ) ( , ')  .' (  ,    )
+             (_,) . ), ) _) _,')  (, ) '. )  ,. (' )
+`}
+      <span className="text-red-500">{`
+        )  (  ) (  )  ) (  )  (  )  (  )  (  )  (
+       (  )  (  )  (  )  (  )  (  )  (  )  (  )  )
+        ) (    ) (    ) (    ) (    ) (    ) (  (
+       (   )  (   )  (   )  (   )  (   )  (   )  )
+`}</span>
+      <span className="text-orange-500">{`
+        ) (    ) (    ) (    ) (    ) (    ) (  (
+       (   )  (   )  (   )  (   )  (   )  (   )  )
+`}</span>
+      <span className="text-yellow-500">{`
+        ) (    ) (    ) (    ) (    ) (    ) (  (
+       (   )  (   )  (   )  (   )  (   )  (   )  )
+`}</span>
+    </pre>
+    <p className="text-orange-400 mt-2">🔥 This portfolio is on fire!</p>
+    <p className="text-neutral-500 text-xs">Hot skills, blazing projects, burning passion for code!</p>
+  </div>
+);
+
+const TypewriterText = ({ text }: { text: string }) => {
+  const [displayText, setDisplayText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, 50);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, text]);
+
+  return (
+    <span className="text-emerald-400">
+      {displayText}
+      {currentIndex < text.length && <span className="animate-pulse">▋</span>}
+    </span>
+  );
+};
+
+const getTypewriterOutput = (text?: string) => {
+  const message = text || "Hello, I am Abhishek Goenka, a Software Engineer at Cisco...";
+  return (
+    <div className="pl-4">
+      <TypewriterText text={message} />
+    </div>
+  );
+};
+
+const getWhoamiVerboseOutput = () => (
+  <div className="pl-4 space-y-3">
+    <div>
+      <p className="text-xl font-bold text-white">{personalInfo.name}</p>
+      <p className="text-cyan-400">Software Engineer I @ {personalInfo.company}</p>
+    </div>
+    
+    <div className="border-t border-neutral-800 pt-3">
+      <p className="text-neutral-500 text-xs uppercase mb-2">Bio</p>
+      <p className="text-neutral-300 text-sm max-w-2xl">{personalInfo.bio}</p>
+    </div>
+
+    <div className="border-t border-neutral-800 pt-3">
+      <p className="text-neutral-500 text-xs uppercase mb-2">Current Role</p>
+      <p className="text-neutral-300 text-sm">
+        <span className="text-purple-400">Company:</span> Cisco Systems
+      </p>
+      <p className="text-neutral-300 text-sm">
+        <span className="text-purple-400">Team:</span> Network Security (NetSec)
+      </p>
+      <p className="text-neutral-300 text-sm">
+        <span className="text-purple-400">Product:</span> Firepower Management Center (FMC)
+      </p>
+      <p className="text-neutral-300 text-sm">
+        <span className="text-purple-400">Focus:</span> Backend Development (Java, Perl, Python)
+      </p>
+    </div>
+
+    <div className="border-t border-neutral-800 pt-3">
+      <p className="text-neutral-500 text-xs uppercase mb-2">Education</p>
+      <p className="text-neutral-300 text-sm">
+        <span className="text-purple-400">Degree:</span> {personalInfo.education.degree}
+      </p>
+      <p className="text-neutral-300 text-sm">
+        <span className="text-purple-400">Institution:</span> {personalInfo.education.institution}
+      </p>
+      <p className="text-neutral-300 text-sm">
+        <span className="text-purple-400">Year:</span> {personalInfo.education.year}
+      </p>
+      <p className="text-neutral-300 text-sm">
+        <span className="text-purple-400">CGPA:</span> {personalInfo.education.cgpa}
+      </p>
+    </div>
+
+    <div className="border-t border-neutral-800 pt-3">
+      <p className="text-neutral-500 text-xs uppercase mb-2">Competitive Programming</p>
+      <p className="text-neutral-300 text-sm">
+        <span className="text-yellow-400">🏆 LeetCode Knight</span> — Rating 2069 (Top 2.17%)
+      </p>
+      <p className="text-neutral-300 text-sm">
+        <span className="text-cyan-400">⚔️ Codeforces Specialist</span> — Rating 1468
+      </p>
+      <p className="text-neutral-300 text-sm">
+        <span className="text-emerald-400">📊 Problems Solved:</span> 1000+
+      </p>
+    </div>
+
+    <div className="border-t border-neutral-800 pt-3">
+      <p className="text-neutral-500 text-xs uppercase mb-2">Contact</p>
+      <p className="text-neutral-300 text-sm">
+        <span className="text-purple-400">Email:</span> {personalInfo.email}
+      </p>
+      <p className="text-neutral-300 text-sm">
+        <span className="text-purple-400">Location:</span> {personalInfo.location}
+      </p>
+    </div>
+
+    <p className="text-neutral-600 text-xs mt-4">Use &apos;social&apos; command to see all social links</p>
+  </div>
+);
+
 export default function TerminalPortfolio() {
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [currentInput, setCurrentInput] = useState("");
@@ -589,6 +946,9 @@ export default function TerminalPortfolio() {
       case "help":
         return getHelpOutput();
       case "whoami":
+        if (args === "--verbose" || args === "-v") {
+          return getWhoamiVerboseOutput();
+        }
         return getWhoamiOutput();
       case "skills":
         return getSkillsOutput();
@@ -627,8 +987,6 @@ export default function TerminalPortfolio() {
         return getCowsayOutput(args || undefined);
       case "hack":
         return getHackOutput();
-      case "weather":
-        return getWeatherOutput();
       case "time":
       case "date":
         return getTimeOutput();
@@ -651,6 +1009,54 @@ export default function TerminalPortfolio() {
         return getVimOutput();
       case "emacs":
         return getEmacsOutput();
+      case "echo":
+        return getEchoOutput(args);
+      case "history":
+        return "HISTORY";
+      case "8ball":
+        return get8BallOutput(args || undefined);
+      case "flip":
+        return getFlipOutput();
+      case "dice":
+      case "roll":
+        return getDiceOutput();
+      case "stats":
+        return getStatsOutput();
+      case "uptime":
+        return getUptimeOutput();
+      case "man":
+        return getManOutput(args || undefined);
+      case "social":
+        return getSocialOutput();
+      case "github":
+        window.open(socialLinks.github, "_blank");
+        return <p className="text-emerald-400">Opening GitHub... 📦</p>;
+      case "linkedin":
+        window.open(socialLinks.linkedin, "_blank");
+        return <p className="text-emerald-400">Opening LinkedIn... 💼</p>;
+      case "twitter":
+        window.open(socialLinks.twitter, "_blank");
+        return <p className="text-emerald-400">Opening Twitter/X... 🐦</p>;
+      case "instagram":
+      case "insta":
+        window.open(socialLinks.instagram, "_blank");
+        return <p className="text-emerald-400">Opening Instagram... 📸</p>;
+      case "hello":
+      case "hi":
+      case "hey":
+        return getHelloOutput();
+      case "42":
+        return get42Output();
+      case "rm":
+        return getRmOutput();
+      case "rainbow":
+        return getRainbowOutput(args || undefined);
+      case "glitch":
+        return getGlitchOutput();
+      case "fire":
+        return getFireOutput();
+      case "typewriter":
+        return getTypewriterOutput(args || undefined);
       case "clear":
         return "CLEAR";
       case "exit":
@@ -667,6 +1073,20 @@ export default function TerminalPortfolio() {
     }
   };
 
+  const getHistoryOutput = () => (
+    <div className="pl-4 text-sm">
+      {commandHistory.length === 0 ? (
+        <p className="text-neutral-500">No commands in history yet.</p>
+      ) : (
+        commandHistory.map((cmd, i) => (
+          <p key={i} className="text-neutral-400">
+            <span className="text-neutral-600 mr-2">{i + 1}</span> {cmd}
+          </p>
+        ))
+      )}
+    </div>
+  );
+
   const handleSubmit = (e?: React.FormEvent) => {
     e?.preventDefault();
     
@@ -675,6 +1095,11 @@ export default function TerminalPortfolio() {
     if (output === "CLEAR") {
       setHistory([]);
       setShowIntro(false);
+    } else if (output === "HISTORY") {
+      setHistory(prev => [...prev, { command: currentInput, output: getHistoryOutput() }]);
+      if (currentInput.trim()) {
+        setCommandHistory(prev => [...prev, currentInput]);
+      }
     } else {
       setHistory(prev => [...prev, { command: currentInput, output }]);
       if (currentInput.trim()) {
