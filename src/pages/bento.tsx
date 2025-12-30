@@ -200,13 +200,13 @@ export default function BentoPortfolio() {
             <motion.div
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
-              className="col-span-1 md:col-span-1 lg:col-span-3 row-span-2 rounded-3xl overflow-hidden relative group"
+              className="col-span-1 md:col-span-1 lg:col-span-3 row-span-2 rounded-3xl overflow-hidden relative group aspect-[3/4] md:aspect-auto"
             >
               <Image
-                src="/my-photo.jpeg"
+                src="/my-photo.jpg"
                 alt={personalInfo.name}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
               />
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
